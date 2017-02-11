@@ -17,16 +17,16 @@
   "main": "./out/src/extension",
   "contributes": {
     "configuration": {
-      "title": "splitCopyPath",
+      "title": "Split / Copy Path",
       "properties": {
         "splitCopyPath.useDoubleQuotes": {
           "type": "boolean",
-          "default": false,
+          "default": "false",
           "description": "When set will use double quotes instead of single quotes"
         },
         "splitCopyPath.includeDirname": {
           "type": "boolean",
-          "default": false,
+          "default": "false",
           "description": "When set will start join with __dirname"
         }
       }

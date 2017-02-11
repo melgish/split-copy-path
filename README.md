@@ -1,14 +1,10 @@
 # split-path-copy README
 
-Adds right-click menu to split the path of the select file and paste as node
+Adds right-click menu to explorer to split the path of the selected file or folder and copy it to the clipboard as a node path.join call
 
   `path.join(__dirname, 'path', 'to', 'file.js')`
 
 ## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
 
 This extension contributes the following settings:
 
