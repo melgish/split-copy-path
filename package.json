@@ -1,69 +1,69 @@
 {
-  "name": "split-copy-path",
-  "displayName": "Split / Copy Path",
-  "description": "Copy selected folder/file as node path.join statement",
-  "version": "0.0.2",
-  "icon": "split-copy-path.svg",
-  "publisher": "nfiorello",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/melgish/split-copy-path.git"
-  },
-  "engines": {
-    "vscode": "^1.5.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.splitCopyPath"
-  ],
-  "main": "./out/src/extension",
-  "contributes": {
-    "configuration": {
-      "title": "Split / Copy Path",
-      "properties": {
-        "splitCopyPath.useDoubleQuotes": {
-          "type": "boolean",
-          "default": false,
-          "description": "When set will use double quotes instead of single quotes"
-        },
-        "splitCopyPath.includeDirname": {
-          "type": "boolean",
-          "default": false,
-          "description": "When set will start join with __dirname"
-        }
-      }
+    "name": "split-copy-path",
+    "displayName": "Split / Copy Path",
+    "description": "Copy selected folder/file as node path.join statement",
+    "version": "0.1.0",
+    "icon": "split-copy-path.svg",
+    "publisher": "nfiorello",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/melgish/split-copy-path.git"
     },
-    "commands": [
-      {
-        "command": "extension.splitCopyPath",
-        "title": "Split / Copy Path"
-      }
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Other"
     ],
-    "menus": {
-      "explorer/context": [
-        {
-          "command": "extension.splitCopyPath"
+    "activationEvents": [
+        "onCommand:extension.splitCopyPath"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "configuration": {
+            "title": "Split / Copy Path",
+            "properties": {
+                "splitCopyPath.useDoubleQuotes": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "When set will use double quotes instead of single quotes"
+                },
+                "splitCopyPath.includeDirname": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "When set will start join with __dirname"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "extension.splitCopyPath",
+                "title": "Split / Copy Path"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "extension.splitCopyPath"
+                }
+            ]
         }
-      ]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    },
+    "dependencies": {
+        "copy-paste": "^1.3.0"
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "tsc -p ./",
-    "compile": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
-  },
-  "devDependencies": {
-    "typescript": "^2.0.3",
-    "vscode": "^1.0.0",
-    "mocha": "^2.3.3",
-    "@types/node": "^6.0.40",
-    "@types/mocha": "^2.2.32"
-  },
-  "dependencies": {
-    "copy-paste": "^1.3.0"
-  }
 }
