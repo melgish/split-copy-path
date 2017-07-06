@@ -2,8 +2,8 @@
     "name": "split-copy-path",
     "displayName": "Split / Copy Path",
     "description": "Copy selected folder/file as node path.join statement",
-    "version": "0.1.0",
-    "icon": "split-copy-path.svg",
+    "version": "0.1.1",
+    "icon": "split-copy-path.png",
     "publisher": "nfiorello",
     "license": "MIT",
     "repository": {
