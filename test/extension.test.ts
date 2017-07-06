@@ -12,11 +12,46 @@ import * as vscode from 'vscode';
 import * as myExtension from '../src/extension';
 
 // Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", () => {
+suite('Split / Copy Path', () => {
+    suite('_sliceUri', () => {
+        const testUri = 'a/b/c';
+        test('It should split Uri values into an array', () => {
+            const slices = myExtension._sliceUri(testUri, false);
+            assert.equal(3, slices.length);
+        });
 
-    // Defines a Mocha unit test
-    test("Something 1", () => {
-        assert.equal(-1, [1, 2, 3].indexOf(5));
-        assert.equal(-1, [1, 2, 3].indexOf(0));
+        test('It should use double quotes when useDoubleQuotes is true', () => {
+            const slices = myExtension._sliceUri(testUri, true);
+            assert.equal('"a"', slices[0]);
+        });
+
+        test('It should use single quotes when useDoubleQuotes is false', () => {
+            const slices = myExtension._sliceUri(testUri, false);
+            assert.equal("'c'", slices[2]);
+        });
+    });
+
+    suite('_joinSlices', () => {
+        const testArray = ['"a"', '"b"', '"c"'];
+        test('It should join array into string', () => {
+            const join = myExtension._joinSlices(testArray, false);
+            assert.equal(typeof join, 'string');
+        });
+
+        test('It should add __dirname if includeDirname is true', () => {
+            const join = myExtension._joinSlices(testArray, true);
+            assert.ok(/dirname/.test(join));
+        });
+
+        test('It should not add __dirname if includeDirname is false', () => {
+            const join = myExtension._joinSlices(testArray, false);
+            assert.ok(!/dirname/.test(join));
+        });
+
+        test('It should not change supplied array parameter', () => {
+            const copy = testArray.slice();
+            const join = myExtension._joinSlices(testArray, true);
+            assert.deepEqual(copy, testArray);
+        });
     });
 });
